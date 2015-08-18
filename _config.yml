@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: lsharemy
 subtitle:
 description:
-author: John Doe
+author: lmy
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://lsharemy.com
 root: /
 permalink: :category/:title/
 permalink_defaults:
@@ -27,7 +27,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-# Writing
+# Writingsearch-form-wrap
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
@@ -62,6 +62,8 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: http://hexo.io/plugins/
+plugins:
+- hexo-generator-cname
 ## Themes: http://hexo.io/themes/
 theme: landscape
 
