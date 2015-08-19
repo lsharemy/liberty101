@@ -73,3 +73,6 @@ deploy:
   type: git
   repository: https://github.com/lsharemy/lsharemy.github.io.git
   branch: master
+
+# Disqus
+disqus_shortname: lsharemy
