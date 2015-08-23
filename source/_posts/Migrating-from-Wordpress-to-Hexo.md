@@ -4,7 +4,7 @@ tags:
   - Hexo
   - Wordpress
 categories:
-  - Hexo
+  - CS
 ---
 
 
