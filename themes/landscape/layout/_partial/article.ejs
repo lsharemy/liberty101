@@ -24,9 +24,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link">Share</a>
-      <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link">Comments</a>
-      <% } %>
       <%- partial('post/tag') %>
     </footer>
   </div>
@@ -37,8 +34,15 @@
 
 <% if (!index && post.comments && config.disqus_shortname){ %>
 <section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+  <% if (post.comments && config.duoshuo_shortname){ %>
+  <a href="javascript:void(0)" onclick="toggleDuoshuoComments('#ds-thread');">多说评论(<span class="ds-thread-count" data-thread-key="<%- url_for(page.path) %>">0</span>)</a>
+  <% } %>
+  <!-- 多说评论框 start -->
+  <div id="ds-thread"></div>
+  <!-- 多说评论框 end -->
+  <% if (post.comments && config.disqus_shortname){ %>
+  <a href="javascript:void(0)" onclick="toggleDisqusComments('disqus_thread');">Disqus评论(<span class="disqus-comment-count" data-disqus-url="<%- post.permalink %>">0</span>)</a>
+  <% } %>
+  <div id="disqus_thread"></div>
 </section>
 <% } %>

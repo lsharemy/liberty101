@@ -8,10 +8,39 @@
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
+  function toggleDisqusComments(id){
+    var commentDom = document.getElementById(id);
+    if(commentDom.children.length > 0){
+      commentDom.innerHTML = "";
+      return;
+    }
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }
 </script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script src="http://static.duoshuo.com/embed.js"></script>
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"<%= config.duoshuo_shortname %>"};
+    function toggleDuoshuoComments(container){
+        if(jQuery(container).has("div").length>0){
+            jQuery(container).empty();
+            return;
+        }
+        var el = document.createElement('div');//该div不需要设置class="ds-thread"
+        el.setAttribute('data-thread-key', '<%- url_for(page.path) %>');//必选参数
+        el.setAttribute('data-url', '<%= page.permalink %>');//必选参数
+        DUOSHUO.EmbedThread(el);
+        jQuery(container).append(el);
+    }
+</script>
+<!-- 多说公共JS代码 end -->
 <% } %>
 
 <script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
